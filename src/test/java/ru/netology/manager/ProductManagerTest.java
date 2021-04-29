@@ -55,15 +55,6 @@ class ProductManagerTest {
     }
 
     @Test
-    public void shouldSearchSmartphoneVendor() {
-        String text = "vendor2";
-
-        Product[] expected = new Product[]{forth};
-        Product[] actual = productManager.searchBy(text);
-        assertArrayEquals(expected, actual);
-    }
-
-    @Test
     public void shouldSearchIfNotExist() {
         String text = "HUAWEI";
 
