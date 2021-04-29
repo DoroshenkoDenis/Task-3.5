@@ -16,6 +16,7 @@ class ProductManagerTest {
     private Book second = new Book(2, "name2", 200, "author2");
     private Smartphone third = new Smartphone(3, "name3", 300, "vendor1");
     private Smartphone forth = new Smartphone(4, "name4", 400, "vendor2");
+    private Smartphone fifth = new Smartphone(4, "name5", 500, "vendor2");
 
     @BeforeEach
     void setUp() {
@@ -23,6 +24,7 @@ class ProductManagerTest {
         productManager.add(second);
         productManager.add(third);
         productManager.add(forth);
+        productManager.add(fifth);
     }
 
     @Test
@@ -53,12 +55,20 @@ class ProductManagerTest {
     }
 
     @Test
-    public void shouldSearchSmartphoneVendor() {
-        String text = "vendor2";
+    public void shouldSearchIfNotExist() {
+        String text = "HUAWEI";
 
-        Product[] expected = new Product[]{forth};
+        Product[] expected = new Product[0];
         Product[] actual = productManager.searchBy(text);
         assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void shouldSearchAllVendorItems() {
+        String text = "vEnDor2";
+
+        Product[] expected = new Product[]{forth, fifth};
+        Product[] actual = productManager.searchBy(text);
+        assertArrayEquals(expected, actual);
+    }
 }
