@@ -52,6 +52,9 @@
                         </goals>
                         <phase>verify</phase>
                         <configuration>
+                            <excludes>
+                                <exclude>**/*ProductRepository.class</exclude>
+                            </excludes>
                             <rules>
                                 <rule>
                                     <limits>
@@ -89,6 +92,5 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
 
 </project>
