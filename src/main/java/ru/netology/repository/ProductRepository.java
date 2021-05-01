@@ -20,10 +20,9 @@ public class ProductRepository {
     }
 
     public void removeById(int id) {
-         findById(id);
-//        if (findById(id) == null) {
-//            throw new NotFoundException("====> Element with id: " + id + " not found <====");
-//        }
+        if (findById(id) == null) {
+            throw new NotFoundException("====> Element with id: " + id + " not found <====");
+        }
         int length = items.length - 1;
         Product[] tmp = new Product[length];
         int index = 0;
@@ -42,7 +41,6 @@ public class ProductRepository {
                 return item;
             }
         }
-//        return null;
-        throw new NotFoundException("====> Element with id: " + id + " not found <====");
+        return null;
     }
 }
